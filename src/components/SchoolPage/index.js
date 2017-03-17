@@ -77,7 +77,7 @@ class SchoolDetails extends React.Component {
     }
 }
 
-class SchoolContainer extends React.Component {
+class SchoolPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -119,4 +119,4 @@ class SchoolContainer extends React.Component {
     }
 }
 
-export default SchoolContainer;
+export default SchoolPage;

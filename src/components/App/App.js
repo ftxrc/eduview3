@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
-import Home from '../HomePage';
-import SchoolContainer from '../SchoolPage';
+import Home from '../Home';
+import SchoolContainer from '../School';
 import NavRouterLink from '../helpers';
 import './App.css';
 

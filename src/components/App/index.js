@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
-import Home from '../HomePage';
-import SchoolContainer from '../SchoolPage';
-import NavRouterLink from '../helpers';
+import HomePage from '../HomePage';
+import SchoolPage from '../SchoolPage';
+import NavRouterLink from '../../helpers';
 import './App.css';
 
 const Test = () => <h1>Test</h1>;
@@ -34,8 +34,8 @@ class App extends Component {
           <div>
             <Navigation />
 
-            <Route exact path="/" component={Home} />
-            <Route path="/school/:id" component={SchoolContainer} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/school/:id" component={SchoolPage} />
             <Route path="/error" component={Test} />
           </div>
         </BrowserRouter>
