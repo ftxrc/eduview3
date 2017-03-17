@@ -13,3 +13,4 @@
 6. Organize CSS
 7. Implement a wizard in the home screen to select municipalities.
 8. Unit test
+9. Redux is showing to be useful. Implement this.
