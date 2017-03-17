@@ -6,3 +6,4 @@
 5. Make component only folders. 
 6. Organize CSS
 7. Implement a wizard in the home screen to select municipalities.
+8. Unit test
