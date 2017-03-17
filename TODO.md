@@ -1,4 +1,10 @@
 # TODO:
+### Features
+1. Municipality GPA calc.
+2. School GPA calc.
+3. Municipality view (detach maps)
+
+### Implementation details
 1. Refactor code to make better use of container elements and detangle logic.
 2. Implement error handling in main map.
 3. Rewrite home to use Axios properly.
