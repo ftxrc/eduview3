@@ -1,0 +1,10 @@
+.main-map {
+    margin-top: -65px;
+	width: 100%;
+	height: 100vh;
+}
+
+.details-map {
+	width: 100%;
+	height: 70vh;
+}
