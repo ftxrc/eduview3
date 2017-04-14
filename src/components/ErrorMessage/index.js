@@ -6,7 +6,7 @@ const ErrorMessage = (props) => {
         <div className="container">
             <Alert bsStyle="danger">
                 <h4>We're sorry, eduview had a problem.</h4>
-                <p>{props.message}</p>
+                <p>The Eduview servers couldn't return the data in time.</p>
                 <p>
                     {props.children}
                 </p>

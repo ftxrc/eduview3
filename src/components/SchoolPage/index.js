@@ -1,16 +1,12 @@
 import React from 'react';
 import {Grid, Row, Col, PageHeader, Button, Alert, Panel} from 'react-bootstrap';
-import { Gmaps, Marker } from 'react-gmaps';
-import Halogen from 'halogen';
+import { Marker } from 'react-gmaps';
 import axios from 'axios';
+import Spinner from '../Spinner';
+import Map from '../Map';
 
-// TODO: Remove this into separate file (See DRY). Just a quick fix
-const config = {
-    key: 'AIzaSyBm0FuEWLNyULROmrcjdnwPn3ki_HAOD_s'
-}
+const Header = ({ title, subtitle }) => <PageHeader>{title} <small>{subtitle}</small></PageHeader>;
 
-const Header = ({ title }) => <PageHeader>{title} <small>Data for this school</small></PageHeader>;
-const Spinner = () => <center><Halogen.ScaleLoader color="#777" /></center>;
 const ErrorMessage = ({ handleButtonClick }) => {
     return (
         <div className="container">
@@ -52,27 +48,25 @@ class SchoolDetails extends React.Component {
         const school = this.props.school;
         const lat = school.location.coordinates[0];
         const lng = school.location.coordinates[1];
+
         return (
-            <div>
-                <Header title={school.name} />
-                <Grid>
-                    <Row className="show-grid">
-                        <Col xs={12} md={8}>
-                            <Gmaps
-                                className="details-map"
-                                lat={lat}
-                                lng={lng}
-                                zoom={15}
-                                params={config}>
-                                <Marker lat={lat} lng={lng} />
-                            </Gmaps>
-                        </Col>
-                        <Col xs={6} md={4}>
-                            <SchoolInfoPanel name="SchoolInfoPanel" gpa="5.0" />
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
+            <Grid>
+                <Row className="show-grid">
+                    <Header title={school.name} subtitle="Data for this school" />
+                    <Col xs={12} md={8}>
+                        <Map
+                            className="details-map"
+                            lat={lat}
+                            lng={lng}
+                            zoom={15}>
+                            <Marker lat={lat} lng={lng} />
+                        </Map>
+                    </Col>
+                    <Col xs={6} md={4}>
+                        <SchoolInfoPanel name={school.name} gpa="4.0" />
+                    </Col>
+                </Row>
+            </Grid>
         );
     }
 }
@@ -80,20 +74,20 @@ class SchoolDetails extends React.Component {
 class SchoolPage extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             schoolData: null,
             hasCrashed: null
         }
 
         this.getSchoolData();
-
         this.getSchoolData = this.getSchoolData.bind(this);
     }
 
     render() {    
         let school = this.state.schoolData;
 
-        if (school !== null) {
+        if (school) {
             return (
                 <div className="container">
                     <SchoolDetails school={school} />
